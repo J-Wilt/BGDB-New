@@ -5,8 +5,8 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+gem 'pg', '0.18.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -46,6 +46,11 @@ gem 'hirb', '0.7.3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :production do
+  # Use the PostgreSQL gem for Heroku production servers
+  gem 'pg', '0.18.4'
 end
 
 group :development do
