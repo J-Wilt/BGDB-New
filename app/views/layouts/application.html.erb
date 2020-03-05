@@ -11,12 +11,12 @@
   
   
     <body>
-      <div class="container-fluid">
+      <div class="container">
         <div id=mySidenav class = "sidenav">
             <b href="javascript:void(0)" class="closebtn" onclick="closeNav()">Hide Menu &times;</b>
             <br>
             <br>
-              <div id="Menu_login">
+            <div id="Menu_login">
               <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
                  <% if user_signed_in? %> 
                   <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-primary") %>        
@@ -33,12 +33,20 @@
                   <% end %>
                   <br>
               </div>    
-
+              <ul class= "user_links"> 
+                  <% if user_signed_in? %>
+                    <% if current_user.profile %>
+                      <li> <%= link_to "View My Collection", user_path(id: current_user.id) %></li>
+                       <li> <%= link_to "Edit My Profile",  edit_user_profile_path(user_id: current_user.id) %> </li>
+                       <li> <%= link_to "Find Other Members", users_path %></li>
+                      <li> <%= link_to "Manage My Account", edit_user_registration_path %></li>
                        
-              
+                     <% else %>
+                      <li><%= link_to "Create your profile to begin", new_user_profile_path(user_id: current_user) %></li>
+                     <% end %> 
+                     <% end %>
                   
                   </ul>
-              <br>
               <br>
               <ul>
                   <li><a href=page4.asp>Discover New Games</a></li>
@@ -46,10 +54,6 @@
                   <li><%= link_to "Contact Us", contact_us_path %></li>
                   <li><%= link_to "About Us", about_path %></li>
               </ul>    
-                  
-                 
-              
-
                 
               
           </div>

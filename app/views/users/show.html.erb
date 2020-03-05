@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class ="main">
+    <div class ="well well_show">  
+      <div class = "row">
+        <div class=col-md-2>
+            
+        </div>
+          <div class=col-md-8>
+          
+               <h1 class = "text-center"> <%= @user.profile.first_name %> <%= @user.profile.last_name %> </h1><br>
+                <p class = "profile.text text-center"><b>Location:</b>  <%= @user.profile.city %>, <%= @user.profile.state %>  <%= @user.profile.zip %></p><br>
+                 <p class = "profile.text text-center"><b>Email:</b> <%= @user.profile.contact_email %></p>
+          </div>
+        </div>
+    </div>
+     
+          <div class="profile_show_text">
+            <div class="well">
+               <b>About Me: </b> <%= @user.profile.description %>
+            </div>
+          </div>
+  </div>
+</div>

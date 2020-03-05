@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_03_05_164853) do
     t.integer "user_id"
     t.string "first_name"
     t.string "last_name"
-    t.string "class"
+    t.string "player_class"
     t.string "city"
     t.string "state"
     t.string "zip"

@@ -4,7 +4,7 @@ class CreateProfiles < ActiveRecord::Migration[5.2]
       t.integer :user_id
       t.string :first_name
       t.string :last_name
-      t.string :class
+      t.string :player_class
       t.string :city
       t.string :state
       t.string :zip

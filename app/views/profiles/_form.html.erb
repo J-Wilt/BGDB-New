@@ -1,0 +1,41 @@
+<%= form_for @profile, url: user_profile_path,  :html => {:multipart => true} do |f| %>
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :player_class %>
+    <%= f.select :player_class, ['Barbarian', 'Bard', 'Cleric', 'Druid', 'Fighter', 'Monk', 'Paladin', 'Ranger', 'Rogue', 'Sorcerer', 'Warlock', 'Wizard'], {}, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :zip %>
+    <%= f.text_field :zip, class: 'form-control' %>
+ </div>    
+ <div class="form-group">
+    <%= f.label :contact_email %>
+    <%= f.text_field :contact_email, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: 'form-control' %>
+  </div>
+   <div>
+    <%= f.label :avatar%>
+    <%= f.file_field :avatar %><br>
+  </div>
+  <div class="form-group">
+    <%= f.submit "Update Profile", class: 'btn btn-primary' %>
+  </div>
+<% end %>
