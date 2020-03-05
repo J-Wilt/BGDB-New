@@ -44,6 +44,9 @@ gem 'hirb', '0.7.3'
 
 gem 'jquery-rails'
 
+# Use Devise for user authentication
+gem 'devise'
+
 
 
 group :development, :test do

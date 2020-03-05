@@ -16,12 +16,29 @@
             <b href="javascript:void(0)" class="closebtn" onclick="closeNav()">Hide Menu &times;</b>
             <br>
             <br>
+              <div id="Menu_login">
               <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
+                 <% if user_signed_in? %> 
+                  <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-primary") %>        
+                     <% else %>
+                  <%= form_for(:user, :url => session_path(:user)) do |f| %>
+                      <%= f.text_field :email, autofocus: true, placeholder: 'Enter Email' %>
+                      <%= f.password_field :password, placeholder: 'Enter Password' %><br>
+                      <%= f.check_box :remember_me %>
+                      <%= f.label :remember_me %><br>
+                      <%= f.submit 'Sign in' %><br><br>
+                      <%= link_to "Forgot your password?", new_password_path(:user), class:"btn btn-primary" %>
+                      <%= link_to "Sign up", new_registration_path(:user), class:"btn btn-primary" %>
+                    <% end %>
+                  <% end %>
+                  <br>
+              </div>    
 
-                      
-      
+                       
+              
                   
                   </ul>
+              <br>
               <br>
               <ul>
                   <li><a href=page4.asp>Discover New Games</a></li>
