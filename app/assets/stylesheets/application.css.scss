@@ -1,7 +1,6 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-
 body{
 background: #FFF8DC;
 font-family: 'Poppins',sans-serif;
@@ -133,6 +132,14 @@ p{
 
 
 .main {
+
+  transition:margin-left .5s;
+
+  margin-left: 325px;
+
+}
+
+.main_header {
 
   transition:margin-left .5s;
 

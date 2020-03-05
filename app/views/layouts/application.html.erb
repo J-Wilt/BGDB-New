@@ -8,36 +8,43 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+  
+  
     <body>
-      <div class="container">
+      <div class="container-fluid">
         <div id=mySidenav class = "sidenav">
             <b href="javascript:void(0)" class="closebtn" onclick="closeNav()">Hide Menu &times;</b>
             <br>
             <br>
-            <div id="Menu_login">
               <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
-             
 
-              </div>    
-
-              <ul class= "user_links"> 
-
+                      
+      
                   
+                  </ul>
+              <br>
+              <ul>
                   <li><a href=page4.asp>Discover New Games</a></li>
                   <li><%= link_to "Home", root_path %></li>
                   <li><%= link_to "Contact Us", contact_us_path %></li>
                   <li><%= link_to "About Us", about_path %></li>
               </ul>    
+                  
+                 
+              
+
+                
+              
           </div>
         </div>  
-                <div class= "container_fluid"> 
-                  <div class = main_head>
+                <div class= "container-fluid"> 
+                  <div class = main_header>
                    <div class="well header"
                       <header id="menu_label" >
                         <div class= "row">
                           <div class="col-md-4">
                                      <br><br><br>
-                          <span style="font-size:30px;cursor:pointer" onclick="openNav();">&#9776; Menu & Login</span> 
+                          <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu & Login</span> 
                           </div>
                           <div class="col-md-2 col-md-offset-6">
                             <img id ="logo_top" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
@@ -47,28 +54,33 @@
                     </div>  
                   </div>
                 </div>
+             
                 <div class="container flash-container">    
                   <% flash.each do |type, msg| %>
                   <%= content_tag :div, msg, class: "alert-#{type} text-center" %>
                   <% end %>
                 </div>
+         
           <%= yield %>
       </div>
-    </div>
-              <script>
+    </div id = main>
+    <script>
                 function openNav() {
+                  
                   document.getElementById("mySidenav").style.width = "300px";
                   document.getElementById("menu_label").style.display = "none";
                   document.getElementById("mySidenav").style.overflowX="auto";
-                  document.getElementsByClassName("main")[0].style.marginLeft = '325px';
-                  document.getElementsByClassName("main_head")[0].style.marginLeft = '325px';
+                  document.getElementsByClassName("main_header")[0].style.marginLeft = '325px';
+                  document.getElementsByClassName("main")[0].style.marginLeft = '325px'; 
                 }
-
+                
                 function closeNav() {
-                  document.getElementsByClassName("main_head")[0].style.marginLeft = "25px";
-                  document.getElementsByClassName("main")[0].style.marginLeft = "25px";
+                  document.getElementsByClassName("main")[0].style.marginLeft = "30px";
+                  document.getElementsByClassName("main_header")[0].style.marginLeft = "0px";
                   document.getElementById("mySidenav").style.width = "0";
                   document.getElementById("menu_label").style.display = "block";
+                  
+                  
                 }
                 </script> 
         </body>
