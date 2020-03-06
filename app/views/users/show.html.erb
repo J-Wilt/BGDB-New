@@ -3,7 +3,20 @@
     <div class ="well well_show">  
       <div class = "row">
         <div class=col-md-2>
+    
+        <div class= "logo">
+            <% if @user.profile.avatar.attached? %>
+         <%= image_tag @user.profile.avatar, class: "avatar_show_img" %>
+         <% else %>
+         <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
+         <% end %>
+        </div>
+
+
             
+            
+            
+         
         </div>
           <div class=col-md-8>
           

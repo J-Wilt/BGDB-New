@@ -47,6 +47,12 @@ gem 'jquery-rails'
 # Use Devise for user authentication
 gem 'devise'
 
+gem "mini_magick"
+
+gem 'active_storage_validations'
+
+
+
 
 
 group :development, :test do
@@ -59,6 +65,7 @@ end
 group :production do
   # Use the PostgreSQL gem for Heroku production servers
   gem 'pg', '0.18.4'
+  gem "aws-sdk-s3", require: false
 end
 
 group :development do

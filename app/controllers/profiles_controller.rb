@@ -41,6 +41,8 @@ end
 
 private
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :player_class, :city, :state, :zip, :contact_email, :description)
+    params.require(:profile).permit(:first_name, :last_name, :player_class, :city, :state, :zip, :contact_email, :description, :avatar)
   end
+
+
 end
