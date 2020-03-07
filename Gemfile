@@ -66,6 +66,7 @@ group :production do
   # Use the PostgreSQL gem for Heroku production servers
   gem 'pg', '0.18.4'
   gem "aws-sdk-s3", require: false
+  gem 'rails_12factor'
 end
 
 group :development do
