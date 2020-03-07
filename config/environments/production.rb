@@ -77,7 +77,8 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
   
   #amazon s3
-  config.active_storage.service = :local
+  #config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new

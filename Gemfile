@@ -50,7 +50,7 @@ gem "mini_magick"
 
 gem 'active_storage_validations'
 
-
+gem 'bucketeer', '~> 0.1.0'
 
 
 
