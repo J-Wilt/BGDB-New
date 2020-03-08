@@ -1,0 +1,36 @@
+<div class ="container-fluid">
+
+  <div class="main">
+      <div class="col-md-8 col-md-offset-2">
+        <ul class="list-unstyled">
+            <% @users.each do |user| %>
+              <% if user.profile %>
+                <li>
+                  <div class="well row <%= cycle('silver-bg','')%>">
+                    <div class = "col-sm-4 text_center">
+                      
+                    <div class= "logo">
+                      <% if user.profile.avatar.attached? %>
+                      <%= image_tag user.profile.avatar, class: "avatar_show_img" %>
+                      <% else %>
+                      <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
+                      <% end %>
+                    </div>
+                      
+                      
+                    </div>
+                    <div class="index_text">
+                      <%= link_to user do %>
+                      <h2 class="index_name_link"><%= user.profile.first_name %> <%= user.profile.last_name %></h2>
+                      <%end%>
+                      <p class="text-center"><%= user.profile.city%> <%=user.profile.state%>, <%=user.profile.zip%></p>
+                      <p><b>About Me: </b><%=user.profile.description %></p>
+                    </div>
+                  </div>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+    </div>
+  </div>
+</div>
