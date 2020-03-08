@@ -34,7 +34,7 @@
    <div>
     <%= f.label :avatar %>
     <%= f.file_field :avatar %><br>
-    <% if @user.profile.avatar.attached? %>
+    <% if current_user.profile %>
              <%= image_tag @user.profile.avatar, class: "avatar_show_img" %>
              <% else %>
              <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
