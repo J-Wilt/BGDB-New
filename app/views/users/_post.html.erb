@@ -1,0 +1,30 @@
+<div class="main">
+    <div class="well">
+<H2>Create a Post</H2>
+      <%= form_for Post.new do |f| %>
+      <div class="form-group">
+    <%= f.label "Title" %>    
+    <%= f.text_field :title %>
+  </div>      
+          
+  <div class="form-group">
+    <%= f.label "Speak your Peace:" %>
+    <%= f.text_field :content %>
+  </div>
+  <div class="form-group">
+    <%= f.label "Show Something:" %>
+    <%= f.file_field :image %>
+  </div>
+  <div class="post_user">
+  <div class="form-group">
+    <%= f.text_field :user_id, value: current_user.id %>
+  </div>
+  </div>
+  <br>
+  <div class="text-center">
+    <%= f.submit 'Create Post', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
+</div>
+</div>
