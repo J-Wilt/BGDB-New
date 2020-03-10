@@ -29,23 +29,17 @@
           
       
     
-      <%= render 'post' %>
-    </div>
-        <ul class="list-unstyled">
-              <% @posts.each do |post|%>
-                <div class="well text-center">
-               <li class="user_posts">  <% if post.image.attached? %>
-             <%= image_tag post.image, class: "avatar_show_img" %>
-             <% else %>
-             <img class ="logo" src="https://mbgdb.s3.us-east-2.amazonaws.com/LogoMakr_95QFB2.png" alt="MYBGDB Logo">
-             <% end %>
-             <p class = "profile.text text-center"><b>Title:</b> <%= post.title %></p>
-             <p class = "profile.text text-center"><b>Status:</b> <%= post.content %></p>
-            </div>
-        <% end %>
-        </li>
+  
    
-   
+   <div class="posts">
+  <% @posts.each do |post| %>
+    <section class="post">
+      <!-- post view -->
+    </section>
+  <% end %>
+</div>
+           
+
      </div>     
 </div>      
   

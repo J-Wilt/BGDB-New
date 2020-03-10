@@ -1,0 +1,17 @@
+  <div class = "well">
+    <div class="user">
+      <div class="avatar_">
+        <% if post.user.avatar.attached? %>
+          <%= link_to user_path(post.user) do %>
+            <%= image_tag post.user.avatar %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if post.image.attached? %>
+    <%= image_tag post.image, class: 'main-image' %>
+      <%= link_to post.user.username, user_path(post.user), class: 'username' %>
+    <div class="description">
+      <%= render partial: "posts/description", locals: {post: post} %>
+      <% end %>
+    </div>
+  </div>

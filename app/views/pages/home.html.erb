@@ -1,23 +1,74 @@
 <body>   
     <div class = "main"> 
-     <div class="container-fluid">  
-        <div>
+         <div class="container-fluid">  
                  <h2>Build, Track, and Share Your Collection</h2>
                  <p>Welcome to your one stop shop to track the games you have, 
                  the games you want, and the games you never knew existed. 
                  It's free to join our community. Take a look around and let us
                  know what you think!</p>
                  
+                <% if user_signed_in? %>
                  
-                 <div class="posts">
-                    <% @posts.each do |post| %>
-                        <section class="post">
-                            
-                          <!-- post view -->
-                        </section>
+                    <% if current_user.profile %>
+                      <%= form_for Post.new do |f| %>
+                    <div class ="well">        
+                          <div class="form-group post_content">
+                              <%= f.label :content, "Say Something" %>
+                            <%= f.text_field :content, class: 'post_content' %>
+                          </div>
+                          <div class ="row">
+                            <div class ="col-md-6"
+                              <div class="form-group">
+                                  <%= f.label :image, "Show Something" %>
+                                <%= f.file_field :image %>
+                            </div>
+                            <div class = "col-md-3">
+                              </div>
+                              <div class="form-group post_user">
+                                <%= f.text_field :user_id, value: current_user.id, class:'d-none'%>
+                              </div>
+                              <br>
+                              <div class="text-center">
+                                <%= f.submit 'Post Something', class: 'btn btn-primary' %>
+                              </div>
+                              </div>
+                          </div>
+                          
+                          <div class="posts">
+                             <% @posts.each do |post| %>
+                                <section class="post">
+                                  <%= render partial: 'post', locals: { post: post } %>
+                                </section>
+                              <% end %>
+                            </div>
+                          
+                    
                     <% end %>
-                </div>
-      
+                  
+                   
+                     <% else %>
+                     <div class = "col-md-8 col-md-offset-2">
+                      <h1>Create your pofile to get in the game!</h1>
+                     </div>
+                     <div class = "col-md-5 col-md-offset-5">
+                     <%= link_to "Create your profile to begin", new_user_profile_path(user_id: current_user), class: 'btn btn-primary text-center' %></li>
+                     <% end %> 
+                     <%else%>
+                     <div class = "col-md-6 col-md-offset-2">
+                      <h1>Sign up to get in the game!</h1>
+                     </div>
+                     <div class = "col-md-5 col-md-offset-5">
+                      <%= link_to "Sign up", new_registration_path(:user), class:"btn btn-primary text-left" %>
+                     </div>
+                <% end %>
+                
+                
+                 
+                    
+                
+ 
+
+        
       </div>
     </div>
 </body>
