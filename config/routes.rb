@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/index'
   resources :posts
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -9,5 +10,7 @@ Rails.application.routes.draw do
  get 'about', to: 'pages#about'
  resources :contacts, only: :create
  get 'contact-us', to: 'contacts#new'
+ get 'search' => 'search#index'
+ 
     
 end

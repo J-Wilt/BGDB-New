@@ -1,17 +1,30 @@
-  <div class = "well">
+<section class="post">
+  <div class="container-fluid">
+  <div class = "row">  
     <div class="user">
-      <div class="avatar_">
-        <% if post.user.avatar.attached? %>
-          <%= link_to user_path(post.user) do %>
-            <%= image_tag post.user.avatar %>
-          <% end %>
-        <% end %>
+      <div class=col-md-2>
+          <div class="avatar">
+            <% if post.user.profile.avatar.attached? %>
+            <%= link_to user_path(post.user) do %>
+            <%= image_tag post.user.profile.avatar %>
+            <% end %>
+            <% end %>
+            </div>
+            <br>
+          </div>
+          <div class="col-md-4 col-md-offset-2 text-center">
+          <h2><%= link_to post.user.username, user_path(post.user), class: 'username' %></h2>
+          <h6>Created At: <%= post.created_at %> </h6>
+          </div>
       </div>
-      <% if post.image.attached? %>
-    <%= image_tag post.image, class: 'main-image' %>
-      <%= link_to post.user.username, user_path(post.user), class: 'username' %>
-    <div class="description">
-      <%= render partial: "posts/description", locals: {post: post} %>
-      <% end %>
     </div>
+  <div>
+  <% if post.image.attached? %>
+  <%= image_tag post.image, class: 'main-image' %>
+  <% end %>
   </div>
+  <div class="description">
+  <%= render partial: "posts/description", locals: {post: post} %>
+  </div>
+  </div>
+</section>

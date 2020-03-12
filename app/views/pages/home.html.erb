@@ -6,9 +6,9 @@
                  the games you want, and the games you never knew existed. 
                  It's free to join our community. Take a look around and let us
                  know what you think!</p>
-                 
+             
                 <% if user_signed_in? %>
-                 
+            <div= "col-md-2">       
                     <% if current_user.profile %>
                       <%= form_for Post.new do |f| %>
                     <div class ="well">        
@@ -33,19 +33,26 @@
                               </div>
                               </div>
                           </div>
-                          
+                          <%= form_with url: search_path, method: :get, local: true, class: 'form-inline search-form' do |form| %>
+                          <%= form.text_field :query, value: params[:query], class: 'form-control mr-sm-2', placeholder: '#search posts' %>
+                            <% end %>
+                         
                           <div class="posts">
                              <% @posts.each do |post| %>
+                               
+                               
+                              
                                 <section class="post">
                                   <%= render partial: 'post', locals: { post: post } %>
                                 </section>
                               <% end %>
+                              
                             </div>
-                          
+                         
                     
                     <% end %>
-                  
-                   
+                  </div>
+                    
                      <% else %>
                      <div class = "col-md-8 col-md-offset-2">
                       <h1>Create your pofile to get in the game!</h1>
