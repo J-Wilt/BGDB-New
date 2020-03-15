@@ -4,7 +4,7 @@ class Post < ApplicationRecord
     has_many :post_hash_tags
     has_many :hash_tags, through: :post_hash_tags
     after_commit :create_hash_tags, on: :create
-    
+    has_many :likes, dependent: :destroy
     has_one_attached :image
 
 

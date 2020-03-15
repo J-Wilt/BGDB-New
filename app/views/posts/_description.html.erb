@@ -6,6 +6,21 @@
   <%end %>
   
 <% end %>
-
- 
-<br><h3 class="btn btn-xs btn-info"><%= link_to "View/Edit Post", post_path(post.id) %></h9>
+<div class="well">
+  <div class="row">
+    <div class=col-md-4>
+<% pre_like = post.likes.find { |like| like.user_id == current_user.id} %>
+<% if pre_like %>
+  <%= button_to 'Unlike', post_like_path(post.id, pre_like), method: :delete, class:"btn btn-info" %>
+<% else %>
+  <%= button_to 'Like', post_likes_path(post.id), method: :post, class:"btn btn-info" %>
+<% end %>
+</div>
+ <div class=col-md-4>
+<h4 class='text-center'><%= post.likes.count %> <%= (post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+</div>
+ <div class=col-md-4>
+<p class="btn btn-info btn-sm"><%= link_to "View/Edit Post", post_path(post.id) %></p>
+</div>
+</div>
+</div>
