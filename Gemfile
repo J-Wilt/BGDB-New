@@ -52,6 +52,12 @@ gem 'active_storage_validations'
 
 gem 'bucketeer', '~> 0.1.0'
 
+gem 'local_time'
+
+gem 'kaminari'
+
+## Gemfile for Rails 3+, Sinatra, and Merb
+gem 'will_paginate'
 
 
 group :development, :test do

@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy
 
-    redirect_to user_path(current_user)
+    redirect_to root_path
   end
 
   private
@@ -20,4 +20,5 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:content, :image, :user_id)
   end
+  
 end

@@ -1,3 +1,4 @@
+<% def msg(status) return "#{status}" end %>
 <%= form_for @profile, url: user_profile_path,  :html => {:multipart => true} do |f| %>
   <div class="form-group">
     <%= f.label :first_name %>
@@ -17,11 +18,11 @@
   </div>
   <div class="form-group">
     <%= f.label :state %>
-    <%= f.text_field :state, class: 'form-control' %>
+    <%= f.text_field :state, lenght: 2, class: 'form-control' %>
   </div>
   <div class="form-group">
     <%= f.label :zip %>
-    <%= f.text_field :zip, class: 'form-control' %>
+    <%= f.text_field :zip, lenght: 5, class: 'form-control' %>
  </div>    
  <div class="form-group">
     <%= f.label :contact_email %>
@@ -49,3 +50,4 @@
     <%= f.submit "Update Profile", class: 'btn btn-primary' %>
   </div>
 <% end %>
+

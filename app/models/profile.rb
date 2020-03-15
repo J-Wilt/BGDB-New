@@ -2,6 +2,11 @@ class Profile < ActiveRecord::Base
   belongs_to :user
   has_one_attached :avatar
   validate :acceptable_image
+ 
+  
+  
+  
+  
   
   def acceptable_image
     return unless avatar.attached?

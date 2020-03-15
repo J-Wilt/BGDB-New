@@ -4,27 +4,34 @@
     <div class="user">
       <div class=col-md-2>
           <div class="avatar">
+             <%= link_to user_path(post.user) do %>
             <% if post.user.profile.avatar.attached? %>
-            <%= link_to user_path(post.user) do %>
             <%= image_tag post.user.profile.avatar %>
             <% end %>
             <% end %>
             </div>
             <br>
           </div>
-          <div class="col-md-4 col-md-offset-2 text-center">
+          <div class="col-md-8 text-center">
           <h2><%= link_to post.user.username, user_path(post.user), class: 'username' %></h2>
-          <h6>Created At: <%= post.created_at %> </h6>
+         
+          <h6>Posted At: <%= local_time(post.created_at) %> </h6>
           </div>
       </div>
     </div>
   <div>
   <% if post.image.attached? %>
-  <%= image_tag post.image, class: 'main-image' %>
-  <% end %>
+  <%= link_to image_tag post.image, class: 'main-image' %>
+  
+  
+ <% end %> 
+ 
   </div>
   <div class="description">
+    
   <%= render partial: "posts/description", locals: {post: post} %>
+  
+  
   </div>
   </div>
 </section>

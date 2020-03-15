@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   # GET to /users/:id
   def show
     @user = User.find( params[:id] )
-    @posts = Post.order(created_at: :desc)
+    @posts = @user.posts.order(created_at: :desc)
+                        .paginate(:page => params[:page], :per_page => 3)
+    
   end
   
 private
