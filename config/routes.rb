@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :friendships
   get 'search/index'
   resources :posts, only: [:new, :create, :show, :destroy]
   devise_for :users

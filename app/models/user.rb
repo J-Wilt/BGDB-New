@@ -11,6 +11,10 @@ class User < ApplicationRecord
     validate :validate_username
     validates :username, presence: :true, uniqueness: { case_sensitive: false }
     has_many :likes, dependent: :destroy
+    has_many :friendships
+    has_many :friends, :through => :friendships
+    has_many :inverse_friendships, :class_name => "Friendship", :foreign_key => "friend_id"
+    has_many :inverse_friends, :through => :inverse_friendships, :source => :user
     
   def login
     @login || self.username || self.email
