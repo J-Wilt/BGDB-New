@@ -59,7 +59,12 @@ gem 'kaminari'
 ## Gemfile for Rails 3+, Sinatra, and Merb
 gem 'will_paginate'
 
-gem "nifty-generators", :group => :development
+gem 'rspec-rails', '~> 3.6'
+gem 'factory_girl_rails'
+gem 'rails-controller-testing'
+gem 'headless'
+gem 'poltergeist'
+gem 'database_cleaner'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
