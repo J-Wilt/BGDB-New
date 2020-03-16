@@ -14,7 +14,7 @@
               <%=image_tag @post.image, size: "120x120" %>
               <% end %><br>
          <%= @post.content %>
-         
+         <%= render contact_user_partial_path %>
          <br>
   
  <%= render partial: "editlinks", locals: {post: @post} %>
